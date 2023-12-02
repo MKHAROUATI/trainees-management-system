@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block title %} Home page {% endblock title %}
+{% block content %}
+
+
+</br>
+</br>
+
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="counter-box colored">
+                    <i class="fa-solid fa-clock"></i>
+                    <span id="clockText" style="color:black;" class="counter"></span>
+                    <p>Clock Live</p>
+                </div>
+            </div>
+  
+
+        <div class="col-md-3">
+            <div class="counter-box colored">
+                <i class="fa  fa-user"></i>
+                <span class="counter">{{ stagiaires }}</span>
+                <p>Available Stagiaires</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="counter-box colored">
+                <i class="fa-solid fa-passport"></i>
+                <span class="counter">{{ permissions }}</span>
+                <p>Available Permissions</p>
+            </div>
+        </div>
+
+		<div class="col-md-3">
+            <div class="counter-box colored">
+                <i class="fa-solid fa-file"></i>
+                <span class="counter">{{ renseignements }}</span>
+                <p>Available Renseignements</p>
+            </div>
+        </div>
+       
+       <div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="counter-box colored">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span class="counter">{{ consultations }}</span>
+                <p>Available Consultations</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 mt-10">
+            <div class="counter-box colored">
+                <i class="fa-solid fa-bell-concierge"></i>
+                <span class="counter">{{ reservations }}</span>
+                <p>Available Reservations</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+</div>
+
+
+<script>
+    setInterval(updateClockText, 1000);
+
+    function updateClockText() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+
+        const formattedTime = `${formatTimeComponent(hours)}:${formatTimeComponent(minutes)}:${formatTimeComponent(seconds)}`;
+        document.getElementById("clockText").textContent = formattedTime;
+    }
+
+    function formatTimeComponent(component) {
+        return component < 10 ? `0${component}` : component;
+    }
+</script>
+
+</br>
+</br>
+
+
+{% endblock content %}

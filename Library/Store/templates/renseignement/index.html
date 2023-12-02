@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Fiche de Renseignement {% endblock title %}
+{% block content %}
+</br>
+</br>
+
+
+<a class="btn btn-success mb-3" href="{% url 'add_fiche' %}" role="button"><i class="fa-solid fa-plus"></i> Add Fiche de Renseignements</a>
+
+</br>
+<div class="card p-10">
+  <h5 class="card-header"><i class="fa-solid fa-user-graduate fa-lg"></i> Renseignements</h5>
+  <div class="card-body">
+    <table class="table border">
+  <thead class="table-dark">
+    <tr>
+      <th class="border" scope="col">#</th>
+      <th class="border" scope="col">GRADE</th>
+      <th class="border" scope="col">NOM ET PRENOM</th>
+       <th class="border" scope="col">GROUPE</th>
+       <th class="border" scope="col">PAYS</th>
+       <th class="border" scope="col">FICHE</th>
+       <th class="border" colspan="3" scope="col">OPERATIONS</th>
+
+    </tr>
+  </thead>
+  <tbody>
+      {% for renseignement in renseignements %}
+
+    <tr>
+      <th class="border" scope="row">{{ forloop.counter }}</th>
+      <td class="border" >{{renseignement.stagiaire.grade}}</td>
+      <td class="border" >{{renseignement.stagiaire.nom}} {{renseignement.stagiaire.prenom}}</td>
+      <td class="border">{{renseignement.stagiaire.groupe.name}}</td>
+      <td class="border">{{renseignement.stagiaire.pays}}</td>
+<td class="border" style="text-align: center;">
+
+    <a role="button" class="btn btn-warning" href="{% url 'display_fiche' file_name=renseignement.file.name %}" target="_blank">
+    <i class="fa-solid fa-file-pdf fa-lg" style="color: black;"></i>
+</a>
+
+
+
+</td>
+
+   <td style="text-align: center;" class="border"><a class="btn btn-success" href="{% url 'edit_fiche'  renseignement.id %}" role="button"><i class="fa-regular fa-pen-to-square fa-lg"></i></a></td>
+      <td style="text-align: center;" class="border"><a class="btn btn-danger" href="{% url 'delete_fiche'  renseignement.id %}" role="button"><i class="fa-regular fa-trash-can fa-lg"></i></a></td>
+
+
+      {% endfor %}
+
+
+  </tbody>
+</table>
+  </div>
+</div>
+{% endblock content %}

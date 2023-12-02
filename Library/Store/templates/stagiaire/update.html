@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}  Stagiaire Editing {% endblock title %}
+{% block content %}
+</br>
+</br>
+<div class="card p-10">
+  <h5 class="card-header"><i class="fa-solid fa-user fa-lg" style="color: black;"></i>
+ Edit Stagiaire</h5>
+  <div class="card-body">
+
+        <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success"><i class="fa-regular fa-pen-to-square fa-lg"></i> Edit Stagiaire</button>
+        </form>
+
+  </div>
+</div>
+</br>
+{% endblock content %}

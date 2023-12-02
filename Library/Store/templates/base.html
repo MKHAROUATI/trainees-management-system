@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Hello World{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+
+    <!-- Link to JavaScript file -->
+    <script src="{% static 'style/style.js' %}"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'index' %}"><i class="fa-brands fa-studiovinari fa-lg"></i> Trainees Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"> Trainees Management</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                            
+                    {% if user.is_authenticated %}
+                        {% if user.is_superuser %}
+                            <li class="nav-item d-flex align-items-center justify-content-center">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">
+                            <i class="fa-solid fa-user-lock fa-2xl"></i>    {{ user.email }} is a SuperAdmin</a>
+
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""></a>
+                            </li>
+
+                            
+
+                            {% else %}
+
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">
+                            <i class="fa-solid fa-user-lock fa-2xl"></i>    {{ user.email }} is a GroupAdmin</a>
+
+
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""></a>
+                            </li>
+
+                
+                            {% endif %}
+                        {% else %}
+
+                            <a class="nav-link active" aria-current="page" href=""></a>
+
+
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""></a>
+                            </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'login' %}"><i class="fa-solid fa-right-from-bracket fa-lg "></i> LOGIN</a>
+                            </li>
+                        {% endif %}
+
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""></a>
+                        </li>
+
+                        <li class="nav-item">
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href=""></a>
+                        </li>
+                                              
+                    
+
+<li class="nav-item"> 
+    <a class="nav-link active" aria-current="page" href=" {% url 'index' %}"><i class="fa-solid fa-house fa-lg"></i> Home</a>
+</li>
+ <li class="nav-item">
+     <a class="nav-link active" aria-current="page"href=" {%url 'stagiaires'%}  "><i class="fa-solid fa-user-graduate fa-lg"></i> Stagiaire</a>
+ </li>
+  <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href=" {%url 'permissions'%}"><i class="fa-solid fa-list fa-lg"></i> Permission</a>
+</li>
+<li class="nav-item">
+      <a class="nav-link active" aria-current="page" href=" {%url 'renseignements'%}"><i class="fa-solid fa-folder fa-lg"></i> Fiche de Renseignements</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href=" {%url 'consultations'%} "><i class="fa-solid fa-user-doctor fa-lg"></i> Consultation</a>
+</li>
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="{%url 'reservations'%} "><i class="fa-solid fa-bed fa-lg"></i> Reservation</a>
+</li>
+
+{% if user.is_authenticated %}
+        {% if user.is_superuser %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-lg "></i> Logout</a>
+            </li>
+         {% else %}
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-lg "></i> Logout</a>
+            </li>
+         {% endif %}
+{% else %}
+           
+{% endif %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</br>
+</br>
+
+
+
+
+<div class="m-2 p-2">
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% elif message.tags == 'error' %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+
+
+    {% block content %}
+    {% endblock content %}
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-....YOUR_SHA_INTEGRITY_HERE...." crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

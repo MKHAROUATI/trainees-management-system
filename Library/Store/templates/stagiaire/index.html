@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}  Stagiaire Addition {% endblock title %}
+{% block content %}
+</br>
+</br>
+
+
+<a class="btn btn-success mb-3" href="{% url 'add_stagiaire' %}" role="button"><i class="fa-solid fa-plus"></i> Add Stagiaire</a>
+
+
+
+</br>
+
+<div class="card p-10">
+  <h5 class="card-header"><i class="fa-solid fa-user fa-lg" style="color: black;"></i>
+ Stagiaires</h5>
+  <div class="card-body">
+    <table class="table border">
+  <thead class="table-dark ">
+  <tr>
+      <th scope="col" class="border">#</th>
+      <th scope="col" class="border">GRADE</th>
+      <th scope="col"class="border">NOM ET PRENOM</th>
+      <th scope="col"class="border">GROUPE</th>
+      <th scope="col"class="border">UNITE</th>
+       <th scope="col"class="border">PAYS</th>
+       <th colspan="3" scope="col" class="border">OPERATIONS</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for stagiaire in stagiaires %}
+
+    <tr>
+      <th scope="row"class="border">{{ forloop.counter }}</th>
+      <td class="border">{{stagiaire.grade}}</td>
+      <td class="border">{{stagiaire.nom}} {{stagiaire.prenom}}</td>
+      <td class="border">{{stagiaire.groupe.name}}</td>
+      <td class="border">{{stagiaire.unite}}</td>
+      <td class="border">{{stagiaire.pays}}</td>
+      <td style="text-align: center;" class="border"><a class="btn btn-success" href="{% url 'edit_stagiaire'  stagiaire.id %}" role="button"><i class="fa-regular fa-pen-to-square fa-lg"></i></a></td>
+      <td style="text-align: center;" class="border"><a class="btn btn-danger" href="{% url 'delete_stagiaire'  stagiaire.id %}" role="button"><i class="fa-regular fa-trash-can fa-lg"></i></a></td>
+
+    </tr>
+
+  {% endfor %}
+
+  </tbody>
+</table>
+  </div>
+</div>
+</br>
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}  Consultation Edition {% endblock title %}
+{% block content %}
+</br>
+</br>
+<div class="card p-10">
+  <h5 class="card-header"><i class="fa-solid fa-user fa-lg" style="color: black;"></i>
+ Update Consultation</h5>
+  <div class="card-body">
+
+        <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success"><i class="fa-solid fa-plus"></i> Update Consultation</button>
+        </form>
+
+  </div>
+</div>
+</br>
+{% endblock content %}

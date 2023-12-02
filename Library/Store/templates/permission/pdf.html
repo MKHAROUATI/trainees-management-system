@@ -1,0 +1,208 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>{{ nom }}.pdf</title>
+</head>
+
+<body>
+            <table>
+                <tr style="line-height: 4;">
+                    <td style="font-size:12px;">KENITRA, LE  <b>{{created_at | date:"d/m/y"}}</b></td>
+                    <td></td>
+                    <td style="text-align: center;font-size:12px;"><u>ROYAUME DU MAROC</u></td>
+                </tr>
+                <tr style="line-height: 4;">
+                    <td style="font-size:12px;"><b>{{groupe}}</b></td>
+                    <td></td>
+                    <td style="text-align: center;font-size:12px;"><u>MINISTERE DE L'INTERIEUR</u></td>
+                </tr>
+                <tr style="line-height: 4;">
+                    <td style="font-size:12px;"><b>{{pays}}</b></td>
+                    <td></td>
+                    <td style="text-align: center;font-size:12px;"><u>LA CAISSE NATIONALE DE SECURITE SOCIALE</u></td>
+                </tr>
+                <tr style="line-height: 4;">
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center;font-size:12px;"><u>DEPARTEMENT DE RESOURCES HUMAINES</u></td>
+                </tr>
+            
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"><b></b></b>
+                        <b></b></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"><b></b></td>
+                </tr>
+            
+                          
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;">
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 25px;"><b>DEMANDE DE PERMISSION EXCEPTIONNELLE</b></td>
+                </tr>
+            
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+            </tr>
+            
+                <tr>
+                    <td colspan="3" style="font-size: 16px; text-align: left;"> <b><u></u></b></td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+                </tr>
+            
+            </table>
+            
+         {% if duree.days == 0 %}
+
+        <p style="font-size: 18px;line-height: 1.8;text-align: justify;"> Le <b>{{ grade }} {{ nom }} {{ prenom }} </b>
+                employee a la caisse nationale de la securite natioanle, demande une permission de la journee du <b>{{ date_out | date:"d/m/y" }}</b>, pour se
+            rendre a l`adresse suivante: <b>{{ destination }}</b>
+            <br>
+            <br>
+            MOTIF: <b> {{ motif }}</b>
+        </p>
+
+{% else %}
+
+<p style="font-size: 18px;line-height: 1.8;text-align: justify;"> Le <b>{{grade}} {{nom}} {{prenom}} </b>
+    employee a la caisse nationale de la securite natioanle, demande une permission de <b>{{ duration }}</b> du <b>{{ date_out | date:"d/m/y" }}
+       </b> au <b>{{ date_in | date:"d/m/y" }}</b>, pour se rendre a l`adresse suivante: <b>{{ destination }}</b>
+    
+    <br>
+    <br>
+    MOTIF: <b> {{motif}}</b>
+</p>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<table>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr style="font-size: 18px;">
+        <td><u>Signature de l'interesse</u></td>
+        <td colspan="2" style="text-align: right;font-size: 18px;"><u>Avis de responsable de division </u></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 18px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+
+    <tr style="font-size: 12px;">
+        <td colspan="3" style="text-align: center;font-size: 18px;"><u>Avis du chef de departement RH</u></td>
+    </tr>
+
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;font-size: 15px;"></td>
+    </tr>
+
+    <tr style="font-size: 12px;">
+        <td colspan="3" style="text-align: center;font-size: 18px;"><u>Decision du Monsieur, le president de la caisse nationale de la securite nationale</u>
+        </td>
+    </tr>
+
+
+    <tr style="font-size: 12px;">
+        <td colspan="3" style="text-align: center;"></td>
+    </tr>
+
+</table>
+</body>
+
+</html>
